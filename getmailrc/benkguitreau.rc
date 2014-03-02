@@ -1,0 +1,19 @@
+[retriever]
+type = SimplePOP3SSLRetriever
+server = pop.cox.net
+port = 995
+username = USERNAME
+password = PASSWORD
+
+[destination]
+type = MDA_external
+path = /usr/bin/procmail
+arguments = ("-f", "%(sender)")
+
+[options]
+delete_after = 7
+verbose = 1
+message_log = ~/.getmail/log
+read_all = false
+delivered_to = true
+received = true

@@ -1,0 +1,2 @@
+virtual/udev gudev
+sys-auth/consolekit policykit

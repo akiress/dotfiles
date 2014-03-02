@@ -1,0 +1,42 @@
+## ~/.screenrc
+#
+startup_message off
+vbell off
+bell_msg '^G'
+activity "active: %n (%t) [%w:%s]"
+msgwait 5 # 1 second messages
+defscrollback 30000
+
+#caption splitonly "%{= B} %{= G}%{R}%%t"
+# always caption current window
+caption always '%{= M}  %= %{= w}%-w%{+b r}%n*%t%{-b r}%{w}%+w %= %{= M}'
+
+autodetach on
+deflogin on
+defflow off
+nethack on
+defutf8 on
+altscreen on
+defbce on
+nonblock on
+defhstatus "screen: ^En (^Et)"
+terminfo urxvt-256color* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+#hardstatus alwayslastline '%{= M} %H%{= G} %l %= %{= w}%-w%{+b r}%n*%t%{-b r}%{w}%+w   %= %{c}%d %D %{B}%c '
+#hardstatus alwayslastline "%{= wd}%?%-Lw%?%{=br WB}%n*%f %t%{=r dw}%?(%u)%?%{= wd}%?%+Lw%?%{=r dw}"
+# programs
+
+#screen -t irc 1 irssi
+#screen -t mpd 2 ncmpcpp
+#screen -t nzbget 3 nzbget -s
+#screen -t tor 4 rtorrent
+#screen -t mail 5  mutt 
+#screen -t news 6  newsbeuter 
+#screen -t bash 7 bash
+
+a
+# keybindinigs
+
+bindkey "^[Od" prev  # change window with ctrl-left
+bindkey "^[Oc" next  # change window with ctrl-right
+

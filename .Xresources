@@ -1,0 +1,76 @@
+!! ================================ !!
+!!          URxvt settings          !!
+!! ================================ !!
+URxvt*geometry:             80x25
+
+! Icon
+URxvt.iconfile:             /home/akiress/.icons/scalable/apps/Terminal.svg
+
+! Font
+URxvt*font:                 xft:Terminus:pixelsize=14, \
+                            9x15bold, \
+
+URxvt*fading:               50
+
+URxvt*background:           #000000
+URxvt*foreground:           #FFFFFF
+
+URxvt*boldFont:             xft:Terminus:pixelsize=14
+URxvt*utf8:                 2
+URxvt*eightBitInput:        true
+
+! Cursor
+URxvt*cursorColor:          #657b83
+URxvt*cursorBlink:          true
+
+! Scrollbar
+URxvt*scrollBar_right:      true
+URxvt*scrollstyle:          plain
+URxvt*thickness:            8
+URxvt*borderColor:          #000000
+URxvt*scrollTtyKeypress:    true
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*saveLines:            8192
+URxvt*jumpScroll:           true
+URxvt*multiScroll:          true
+URxvt*secondaryWheel:       true
+URxvt*secondaryScroll:      true
+
+URxvt*loginShell:           true
+
+URxvt*internalBorder:       1
+URxvt*externalBorder:
+
+URxvt.perl-lib:             /home/akiress/.config/urxvt
+URxvt.perl-ext-common:      default,matcher,clipboard,keyboard-select
+URxvt.url-launcher:         /usr/bin/google-chrome
+
+URxvt.matcher.button:       1 
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.Control-V:         perl:clipboard:copy
+URxvt.keysym.Shift-Control-V:         perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.keysym.M-C-v:         perl:clipboard:paste_escaped
+!URxvt.copyCommand:          xsel -ib
+!URxvt.pasteCommand:         xsel -o
+
+! URL selection
+URxvt.urlLauncher:          google-chrome
+URxvt.underlineURLs:        true
+URxvt.urlButton:            2
+
+!! =============================== !!
+!!          XFT settings           !!
+!! =============================== !!
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+!! =============================== !!
+!!      Xcursors           !!
+!! =============================== !!
+!! Xcursor.theme:              gentoo-blue
+Xcursor.theme: Obsidian

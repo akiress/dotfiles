@@ -1,0 +1,21 @@
+[retriever]
+type = SimpleIMAPSSLRetriever
+server = imap.gmail.com
+username = USERNAME
+password = PASSWORD
+mailboxes = ("INBOX","[Gmail]/Sent Mail")
+
+[destination]
+type = MDA_external
+path = /usr/bin/procmail
+arguments = ("-f", "%(sender)")
+
+[options]
+verbose = 2
+message_log = ~/.getmail/log
+# retrieve only new messages
+# if set to true it will re-download ALL messages every time!
+read_all = false
+# do not alter messages
+delivered_to = false
+received = false
