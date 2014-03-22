@@ -11,6 +11,7 @@ import            XMonad.Layout.Named
 import            XMonad.Layout.NoBorders
 import            XMonad.Layout.PerWorkspace
 import            XMonad.Layout.Reflect
+import            XMonad.Layout.Grid
 import            XMonad.Layout.Tabbed
 import            XMonad.Prompt
 import            XMonad.Prompt.Input
@@ -49,7 +50,7 @@ myTerminal = "/usr/bin/urxvt"
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
 myWorkspaces :: [String]
-myWorkspaces = [ "1.web", "2.code", "3", "4", "5", "6", "7.media", "8.irc"
+myWorkspaces = [ "1.web", "2.code", "3", "4", "5", "6:IM", "7.media", "8.irc"
                , "9.mail" ]
 
 ------------------------------------------------------------------------
@@ -366,7 +367,6 @@ myFloatHook = composeAll
     , className     =? "Icedove"                  --> moveToMail
     , className     =? "MPlayer"                  --> moveToMedia
     , className     =? "Pidgin"                   --> moveToIM
-    , classNotRole  ("Pidgin", "")                --> doFloat
     , className     =? "Skype"                    --> moveToIM
     , classNotRole  ("Skype", "MainWindow")       --> doFloat
     , className     =? "Gajim"                    --> moveToIM
@@ -385,7 +385,7 @@ myFloatHook = composeAll
     , manageDocks]
   where
     moveToMail  = doF $ W.shift "9.mail"
-    moveToIM    = doF $ W.shift "8.irc"
+    moveToIM    = doF $ W.shift "6.IM"
     moveToWeb   = doF $ W.shift "1.web"
     moveToMedia = doF $ W.shift "7.media"
     moveToCode  = doF $ W.shift "2.code"
