@@ -19,6 +19,9 @@ source ~/.keychain/$HOST-sh
 eval $(dircolors ~/.dircolors)
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
+setopt auto_name_dirs
+setopt auto_cd
+
 #Set some keybindings
 ###############################################
 typeset -g -A key
@@ -44,26 +47,8 @@ fi
 ## ============================ ##
 ##          Functions           ##
 ## ============================ ##
-# rationalize-path()
-rationalize-path () {             
-  # Note that this works only on arrays, not colon-delimited strings.
-  # Not that this is a problem now that there is typeset -T.
-  local element
-  local build
-  build=()
-  # Evil quoting to survive an eval and to make sure that
-  # this works even with variables containing IFS characters, if I'm
-  # crazy enough to setopt shwordsplit.
-  eval '
-  foreach element in "$'"$1"'[@]"
-  do
-    if [[ -d "$element" ]]
-    then
-      build=("$build[@]" "$element")
-    fi
-  done
-  '"$1"'=( "$build[@]" )
-  '
+chpwd() {
+    dir
 }
 
 ## ============================ ##
@@ -81,15 +66,13 @@ typeset -U cdpath
 fpath=( $HOME/lib/zsh/func "$fpath[@]" )
 export FPATH
 
-# Only unique entries please.
-typeset -U fpath
-
 # Include function path in script path so that we can run them even
 # though a subshell may not know about functions.
 # PATH should already be exported, but in case not. . .
 path=(
-  "$HOME/bin/$MACHTYPE-$OSTYPE"
-  "$HOME/bin/"
+  "$HOME/git/dotfiles/bin"
+  ./bin
+  "$HOME/bin"
   /home/akiress/texlive/bin/x86_64-linux
   /usr/local/bin
   /usr/local/sbin
@@ -113,8 +96,11 @@ path=(
   $JAVA_HOME/bin
   $JAVA_HOME/jre/bin
   $JAVA_HOME/jre
+  $HOME/.cabal/bin
+  $HOME/.xmonad/bin
 )
 export PATH
+
 
 # Only unique entries please.
 typeset -U path
@@ -130,5 +116,7 @@ export TIGER=${CS4351}/tiger
 export CLASSPATH=.:..:${CS4351}/classes/${PROG}:${CS4351}/classes
 export TEST=${TIGER}/testcases
 
-# XMonad
-export PATH=\$PATH:~/.cabal/bin:~/.xmonad/bin
+export PATH=$PATH:$HOME/.cabal/bin:$HOME/.xmonad/bin
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
