@@ -86,7 +86,7 @@ keys = [
     Key([win], "d",
         lazy.spawn(Commands.dmenu)),
     Key([mod], "Return",
-        lazy.spawn('urxvt')),
+        lazy.spawn('terminology')),
     Key([win], "s",
         lazy.spawn(Commands.screenshot)),
     Key([win], "f",
@@ -261,7 +261,7 @@ def execute_once(process):
 @hook.subscribe.startup
 def runner():
     import subprocess
-    subprocess.Popen(['nitrogen', '--restore', '&'])
+    # subprocess.Popen(['nitrogen', '--restore', '&'])
     subprocess.Popen(['hsetroot', '-solid', '#000000'])
     subprocess.Popen(['xsetroot', '-cursor_name', 'top_left_arrow'])
 
