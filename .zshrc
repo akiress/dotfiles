@@ -111,7 +111,7 @@ rationalize-path path
 
 # Compilers CSC 4351
 export CS4351=~/git/compilers/pub
-export PROG=chap5
+export PROG=chap6
 export TIGER=${CS4351}/tiger
 export CLASSPATH=.:..:${CS4351}/classes/${PROG}:${CS4351}/classes
 export TEST=${TIGER}/testcases
@@ -119,4 +119,11 @@ export TEST=${TIGER}/testcases
 export PATH=$PATH:$HOME/.cabal/bin:$HOME/.xmonad/bin
 
 export GOPATH=$HOME/go
+export GOROOT=/sbin
 export PATH=$PATH:$GOPATH/bin
+
+PATH="/home/akiress/perl5/bin${PATH+:}$PATH"; export PATH;
+PERL5LIB="/home/akiress/perl5/lib/perl5${PERL5LIB+:}$PERL5LIB"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/akiress/perl5${PERL_LOCAL_LIB_ROOT+:}$PERL_LOCAL_LIB_ROOT"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/akiress/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/akiress/perl5"; export PERL_MM_OPT;
