@@ -48,24 +48,9 @@ filetype plugin indent on
     filetype plugin on
 " }}}
 
-" Colourscheme {{{
-    NeoBundleFetch 'itchyny/landscape'
-    syntax on
-    syntax sync fromstart
-    colorscheme landscape
-
-    hi LineNr ctermbg=016
-    hi MatchParen term=reverse ctermfg=027
-
-    " Allow color schemes to do bright colors without forcing bold.
-    if &t_Co == 8 && $TERM !~# '^linux'
-        set t_Co=16
-    endif
-" }}}
-
 " NeoBundleFetch {{{
-
     " Visual
+    NeoBundleFetch 'itchyny/landscape'
     NeoBundleFetch 'vim-scripts/jumphl.vim', "{{{
         autocmd VimEnter * DoJumpHl " Highlight line after jump
     "}}}
@@ -348,6 +333,20 @@ filetype plugin indent on
     "}}}
 
     NeoBundleCheck
+" }}}
+
+" Colourscheme {{{
+    syntax on
+    syntax sync fromstart
+    colorscheme landscape
+
+    hi LineNr ctermbg=016
+    hi MatchParen term=reverse ctermfg=027
+
+    " Allow color schemes to do bright colors without forcing bold.
+    if &t_Co == 8 && $TERM !~# '^linux'
+        set t_Co=16
+    endif
 " }}}
 
 " Toggle relative numbers {{{
