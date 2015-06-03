@@ -5,27 +5,33 @@ let mapleader=";"
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" NeoBundleInitialisation {{{
-    if has('vim_starting')
-      set runtimepath+=~/.vim/bundle/neobundle.vim/
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+if has('vim_starting')
+    if &compatible
+        set nocompatible               " Be iMproved
     endif
 
-    call neobundle#rc(expand('~/.vim/bundle/'))
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-    " Let NeoBundle manage NeoBundle
-    NeoBundleFetch 'Shougo/neobundle.vim'
-    NeoBundle 'Shougo/vimproc', {
-          \ 'build' : {
-          \     'windows' : 'make -f make_mingw32.mak',
-          \     'cygwin' : 'make -f make_cygwin.mak',
-          \     'mac' : 'make -f make_mac.mak',
-          \     'unix' : 'make -f make_unix.mak',
-          \    },
-          \ }
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-    " Syntax
-    NeoBundle 'itchyny/landscape.vim'
-"}}}
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
 
 " Tabs & indenting {{{
     set tabstop=4
