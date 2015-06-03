@@ -291,7 +291,7 @@ NeoBundle 'Shougo/neobundle.vim'
         nmap <space>f :VimFiler -winwidth=40 -explorer -toggle<CR>
         nmap <space>n :VimFiler -winwidth=40 -explorer -find<CR>
     "}}}
-    NeoBundle 'tsaleh/vim-matchit'
+    NeoBundle 'tpope/vim-sensible'
 
     " VCS
     NeoBundle 'int3/vim-extradite', "{{{
