@@ -182,10 +182,10 @@ NeoBundle 'Shougo/neobundle.vim'
                 \   execute "normal \<c-w>w" |
                 \ endif
 
-        hi StartifyBracket ctermfg=100
-        hi StartifyNumber  ctermfg=215
-        hi StartifyPath    ctermfg=245
-        hi StartifySlash   ctermfg=240
+        hi StartifyBracket ctermfg=3 " ctermfg=100
+        hi StartifyNumber  ctermfg=43 " ctermfg=215
+        hi StartifyPath    ctermfg=7 " ctermfg=245
+        hi StartifySlash   ctermfg=16 " ctermfg=240
     " }}}
     NeoBundle 'bling/vim-airline', "{{{
         set laststatus=2
@@ -337,8 +337,8 @@ call neobundle#end()
     syntax sync fromstart
     colorscheme landscape
 
-    hi LineNr ctermbg=black
-    hi MatchParen term=reverse ctermfg=027
+    hi LineNr ctermbg=8 "ctermbg=016
+    hi MatchParen term=reverse ctermfg=46 "ctermfg=027
 
     " Allow color schemes to do bright colors without forcing bold.
     if &t_Co == 8 && $TERM !~# '^linux'
@@ -532,7 +532,7 @@ call neobundle#end()
 
     " listchar=trail is not as flexible, use the below to highlight trailing
     " whitespace. Don't do it for unite windows or readonly files
-    highlight ExtraWhitespace ctermbg=red guibg=red
+    highlight ExtraWhitespace ctermbg=41 guibg=41 "ctermbg=red guibg=red
 
     function! HighlightTrailingWhitespace()
         if &ft =~ 'html|scss|css|javascript|php|vim'
