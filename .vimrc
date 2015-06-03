@@ -30,7 +30,7 @@ NeoBundle 'Shougo/neobundle.vim'
 
 " NeoBundle {{{
     " Visual
-    NeoBundle 'itchyny/landscape.vim'
+    NeoBundle 'vim-scripts/colorschemer'
     NeoBundle 'vim-scripts/jumphl.vim', "{{{
         autocmd VimEnter * DoJumpHl " Highlight line after jump
     "}}}
@@ -335,7 +335,7 @@ call neobundle#end()
 " Colourscheme {{{
     syntax on
     syntax sync fromstart
-    colorscheme landscape
+    colorscheme tchaba2
 
     " hi LineNr ctermbg=016
     " hi MatchParen term=reverse ctermfg=027
