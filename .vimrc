@@ -30,7 +30,7 @@ NeoBundle 'Shougo/neobundle.vim'
 
 " NeoBundle {{{
     " Visual
-    NeoBundle 'itchyny/landscape'
+    NeoBundle 'itchyny/landscape.vim'
     NeoBundle 'vim-scripts/jumphl.vim', "{{{
         autocmd VimEnter * DoJumpHl " Highlight line after jump
     "}}}
