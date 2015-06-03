@@ -37,8 +37,8 @@ NeoBundle 'Shougo/neobundle.vim'
     NeoBundle 'ivyl/vim-bling'
     NeoBundle 'kana/vim-narrow'
     NeoBundle 'Yggdroot/indentLine', "{{{
-        let g:indentLine_color_term = 235
-        let g:indentLine_char = '┊'
+        let g:indentLine_color_term = 5
+        let g:indentLine_char = '|'
         nnoremap <space>i :IndentLinesToggle<CR>
     "}}}
     NeoBundle 'qstrahl/vim-matchmaker', "{{{
@@ -75,15 +75,6 @@ NeoBundle 'Shougo/neobundle.vim'
     " Preview
     NeoBundle 'greyblake/vim-preview'
 
-    " Completion
-    NeoBundle 'marijnh/tern_for_vim', {
-      \ 'build' : {
-      \     'mac' : 'npm install --update',
-      \     'unix' : 'npm install --update',
-      \    },
-      \ }, "{{{
-        let g:tern_show_argument_hints = 1
-    " }}}
     NeoBundle 'shawncplus/phpcomplete.vim'
     NeoBundle 'Shougo/context_filetype.vim'
     NeoBundle 'Shougo/neocomplete.vim', "{{{
