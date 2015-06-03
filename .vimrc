@@ -228,8 +228,8 @@ NeoBundle 'Shougo/neobundle.vim'
 
         " CTRL-P
         nnoremap <space>p :Unite -start-insert file_rec/async<cr>
-        call unite#filters#matcher_default#use(['matcher_fuzzy'])
-        call unite#set_profile('files', 'smartcase', 1)
+        " call unite#filters#matcher_default#use(['matcher_fuzzy'])
+        " call unite#set_profile('files', 'smartcase', 1)
 
         " Searching - brew install the_silver_searcher
         let g:unite_source_grep_command='ag'
