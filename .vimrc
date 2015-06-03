@@ -337,7 +337,7 @@ call neobundle#end()
     syntax sync fromstart
     colorscheme landscape
 
-    hi LineNr ctermbg=016
+    hi LineNr ctermbg=black
     hi MatchParen term=reverse ctermfg=027
 
     " Allow color schemes to do bright colors without forcing bold.
