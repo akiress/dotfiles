@@ -20,83 +20,63 @@ endif
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-" Let NeoBundleFetch manage NeoBundle
+" Let NeoBundle manage NeoBundle
 " Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neobundle.vim'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
-" Note: You don't set NeoBundleFetch setting in .gvimrc!
+" Note: You don't set NeoBundle setting in .gvimrc!
 
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" Tabs & indenting {{{
-    set tabstop=4
-    set shiftwidth=4
-    set expandtab
-    set softtabstop=4
-    set shiftwidth=4
-
-    au FileType python,ruby setl sw=2 sts=2 et
-    au FileType javascript,css,less,sass,scss setl sw=2 sts=2 et
-    au FileType php,phtml,html setl sw=4 sts=4 et
-
-    filetype plugin indent on
-    filetype plugin on
-" }}}
-
-" NeoBundleFetch {{{
+" NeoBundle {{{
     " Visual
-    NeoBundleFetch 'itchyny/landscape'
-    NeoBundleFetch 'vim-scripts/jumphl.vim', "{{{
+    NeoBundle 'itchyny/landscape'
+    NeoBundle 'vim-scripts/jumphl.vim', "{{{
         autocmd VimEnter * DoJumpHl " Highlight line after jump
     "}}}
-    NeoBundleFetch 'ivyl/vim-bling'
-    NeoBundleFetch 'kana/vim-narrow'
-    NeoBundleFetch 'Yggdroot/indentLine', "{{{
+    NeoBundle 'ivyl/vim-bling'
+    NeoBundle 'kana/vim-narrow'
+    NeoBundle 'Yggdroot/indentLine', "{{{
         let g:indentLine_color_term = 235
         let g:indentLine_char = '┊'
         nnoremap <space>i :IndentLinesToggle<CR>
     "}}}
-    NeoBundleFetch 'qstrahl/vim-matchmaker', "{{{
+    NeoBundle 'qstrahl/vim-matchmaker', "{{{
         let g:matchmaker_enable_startup = 0
         nnoremap <space>m :MatchmakerToggle<CR>
     "}}}
 
     " Indenting
-    NeoBundleFetch 'pangloss/vim-javascript'
+    NeoBundle 'pangloss/vim-javascript'
 
     " Syntax
-    NeoBundleFetch 'groenewege/vim-less', {'autoload':{'filetypes':['less']}}, "{{{
+    NeoBundle 'groenewege/vim-less', {'autoload':{'filetypes':['less']}}, "{{{
         au BufNewFile,BufRead *.less setf less
     "}}}
-    NeoBundleFetch 'rkitover/vimpager'
-    NeoBundleFetch 'cakebaker/scss-syntax.vim', {'autoload':{'filetypes':['scss','sass']}}
-    NeoBundleFetch 'ap/vim-css-color', {'autoload':{'filetypes':['css','scss','sass','less','styl']}}, "{{{
+    NeoBundle 'rkitover/vimpager'
+    NeoBundle 'cakebaker/scss-syntax.vim', {'autoload':{'filetypes':['scss','sass']}}
+    NeoBundle 'ap/vim-css-color', {'autoload':{'filetypes':['css','scss','sass','less','styl']}}, "{{{
         let g:cssColorVimDoNotMessMyUpdatetime = 1
     "}}}
-    NeoBundleFetch 'othree/html5.vim', {'autoload':{'filetypes':['html', 'jinja2', 'phtml']}}
-    NeoBundleFetch 'dbakker/vim-md-noerror'
-    NeoBundleFetch 'zaiste/tmux.vim'
-    NeoBundleFetch 'evanmiller/nginx-vim-syntax'
-    NeoBundleFetch 'maksimr/vim-jsbeautify', {'autoload':{'filetypes':['javascript']}} "{{{
+    NeoBundle 'othree/html5.vim', {'autoload':{'filetypes':['html', 'jinja2', 'phtml']}}
+    NeoBundle 'dbakker/vim-md-noerror'
+    NeoBundle 'zaiste/tmux.vim'
+    NeoBundle 'evanmiller/nginx-vim-syntax'
+    NeoBundle 'maksimr/vim-jsbeautify', {'autoload':{'filetypes':['javascript']}} "{{{
         nnoremap <leader>fjs :call JsBeautify()<cr>
     "}}}
-    NeoBundleFetch 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript', 'json']}}
-    NeoBundleFetch 'lukaszb/vim-web-indent'
-    NeoBundleFetch 'tikhomirov/vim-glsl'
+    NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript', 'json']}}
+    NeoBundle 'lukaszb/vim-web-indent'
+    NeoBundle 'tikhomirov/vim-glsl'
         autocmd BufNewFile,BufRead *.vp,*.fp,*.gp,*.vs,*.fs,*.gs,*.tcs,*.tes,*.cs,*.vert,*.frag,*.geom,*.tess,*.shd,*.gls,*.glsl set ft=glsl
     " Images
-    NeoBundleFetch 'tpope/vim-afterimage'
+    NeoBundle 'tpope/vim-afterimage'
 
     " Preview
-    NeoBundleFetch 'greyblake/vim-preview'
+    NeoBundle 'greyblake/vim-preview'
 
     " Completion
-    NeoBundleFetch 'marijnh/tern_for_vim', {
+    NeoBundle 'marijnh/tern_for_vim', {
       \ 'build' : {
       \     'mac' : 'npm install --update',
       \     'unix' : 'npm install --update',
@@ -104,9 +84,9 @@ filetype plugin indent on
       \ }, "{{{
         let g:tern_show_argument_hints = 1
     " }}}
-    NeoBundleFetch 'shawncplus/phpcomplete.vim'
-    NeoBundleFetch 'Shougo/context_filetype.vim'
-    NeoBundleFetch 'Shougo/neocomplete.vim', "{{{
+    NeoBundle 'shawncplus/phpcomplete.vim'
+    NeoBundle 'Shougo/context_filetype.vim'
+    NeoBundle 'Shougo/neocomplete.vim', "{{{
         " brew install vim --with-python --with-ruby --with-perl --with-lua --with-tcl
         set completeopt-=preview
 
@@ -152,7 +132,7 @@ filetype plugin indent on
     " }}}
 
     " Documentation
-    NeoBundleFetch 'heavenshell/vim-jsdoc', "{{{
+    NeoBundle 'heavenshell/vim-jsdoc', "{{{
         let g:jsdoc_allow_input_prompt = 1
         let g:jsdoc_default_mapping = 0
         let g:jsdoc_input_description = 1
@@ -161,18 +141,18 @@ filetype plugin indent on
     "}}}
 
     " Usability
-    NeoBundleFetch 'tpope/vim-commentary'
-    NeoBundleFetch 'matze/vim-move', "{{{
+    NeoBundle 'tpope/vim-commentary'
+    NeoBundle 'matze/vim-move', "{{{
         " <C-k>   Move current line/selections up
         " <C-j>   Move current line/selections down
         let g:move_key_modifier = 'C'
     "}}}
-    NeoBundleFetch 'dbakker/vim-paragraph-motion'
-    NeoBundleFetch 'justinmk/vim-sneak', " {{{
+    NeoBundle 'dbakker/vim-paragraph-motion'
+    NeoBundle 'justinmk/vim-sneak', " {{{
         nmap , <Plug>SneakNext
         nmap \ <Plug>SneakPrevious
     "}}}
-    NeoBundleFetch 'prendradjaja/vim-vertigo', "{{{
+    NeoBundle 'prendradjaja/vim-vertigo', "{{{
         nnoremap <silent> <Space>j :<C-U>VertigoDown n<CR>
         xnoremap <silent> <Space>j :<C-U>VertigoDown v<CR>
         onoremap <silent> <Space>j :<C-U>VertigoDown o<CR>
@@ -180,16 +160,16 @@ filetype plugin indent on
         xnoremap <silent> <Space>k :<C-U>VertigoUp v<CR>
         onoremap <silent> <Space>k :<C-U>VertigoUp o<CR>
     "}}}
-    NeoBundleFetch 'Lokaltog/vim-easymotion'
-    NeoBundleFetch 'tpope/vim-speeddating'
-    NeoBundleFetch 'AndrewRadev/splitjoin.vim', "{{{
+    NeoBundle 'Lokaltog/vim-easymotion'
+    NeoBundle 'tpope/vim-speeddating'
+    NeoBundle 'AndrewRadev/splitjoin.vim', "{{{
         nmap gS :SplitjoinSplit<cr>
         nmap gJ :SplitjoinJoin<cr>
     " }}}
-    NeoBundleFetch 'inkarkat/closetag.vim'
+    NeoBundle 'inkarkat/closetag.vim'
 
     " Features
-    NeoBundleFetch 'mhinz/vim-startify', "{{{
+    NeoBundle 'mhinz/vim-startify', "{{{
         let g:startify_show_sessions = 1
         let g:startify_list_order = ['sessions', 'bookmarks', 'dir', 'files']
         let g:startify_session_dir = expand('~/.vim/.cache/unite/session')
@@ -207,12 +187,12 @@ filetype plugin indent on
         hi StartifyPath    ctermfg=245
         hi StartifySlash   ctermfg=240
     " }}}
-    NeoBundleFetch 'bling/vim-airline', "{{{
+    NeoBundle 'bling/vim-airline', "{{{
         set laststatus=2
         let g:airline_theme = "dark"
         let g:airline_powerline_fonts = 1
     " }}}
-    NeoBundleFetch 'scrooloose/syntastic', "{{{
+    NeoBundle 'scrooloose/syntastic', "{{{
         " Show / hide location list
         noremap <silent><leader>lc :lcl<CR>
         noremap <silent><leader>lo :lw<CR>
@@ -236,11 +216,11 @@ filetype plugin indent on
         let g:syntastic_enable_highlighting = 1
         let g:syntastic_echo_current_error  = 1
     "}}}
-    NeoBundleFetch 'Shougo/unite-outline', "{{{
+    NeoBundle 'Shougo/unite-outline', "{{{
         nnoremap <space>o :Unite outline<CR>
     "}}}
-    NeoBundleFetch 'Shougo/unite-session'
-    NeoBundleFetch 'Shougo/unite.vim', "{{{
+    NeoBundle 'Shougo/unite-session'
+    NeoBundle 'Shougo/unite.vim', "{{{
         let g:unite_data_directory = expand('~/.vim/.cache/unite')
         let g:unite_enable_start_insert=0
         let g:unite_source_rec_max_cache_files=5000
@@ -277,31 +257,31 @@ filetype plugin indent on
         endfunction
 
     " }}}
-    NeoBundleFetch 'sjl/gundo.vim', "{{{
+    NeoBundle 'sjl/gundo.vim', "{{{
         nnoremap <F5> :GundoToggle<CR>
         let g:gundo_width = 60
         let g:gundo_preview_height = 20
         let g:gundo_right = 1
         let g:gundo_close_on_revert = 1
     " }}}
-    NeoBundleFetch 'terryma/vim-expand-region'
-    NeoBundleFetch 'terryma/vim-multiple-cursors'
-    NeoBundleFetch 'hlissner/vim-multiedit'
+    NeoBundle 'terryma/vim-expand-region'
+    NeoBundle 'terryma/vim-multiple-cursors'
+    NeoBundle 'hlissner/vim-multiedit'
 
     " Utility
-    NeoBundleFetch 'tpope/vim-unimpaired'
-    NeoBundleFetch 'tpope/vim-surround'
-    NeoBundleFetch 'tpope/vim-eunuch'
-    NeoBundleFetch 'tpope/vim-repeat'
-    NeoBundleFetch 'tpope/vim-abolish'
-    NeoBundleFetch 'vim-scripts/bufkill.vim', "{{{
+    NeoBundle 'tpope/vim-unimpaired'
+    NeoBundle 'tpope/vim-surround'
+    NeoBundle 'tpope/vim-eunuch'
+    NeoBundle 'tpope/vim-repeat'
+    NeoBundle 'tpope/vim-abolish'
+    NeoBundle 'vim-scripts/bufkill.vim', "{{{
         nnoremap <space>d :BW<CR>
     "}}}
-    NeoBundleFetch 'Raimondi/delimitMate', "{{{
+    NeoBundle 'Raimondi/delimitMate', "{{{
         let delimitMate_expand_cr = 0
         let delimitMate_jump_expansion = 0
     "}}}
-    NeoBundleFetch 'Shougo/vimfiler.vim', "{{{
+    NeoBundle 'Shougo/vimfiler.vim', "{{{
         let g:vimfiler_as_default_explorer = 1
         let g:vimfiler_safe_mode_by_default = 0
 
@@ -311,15 +291,15 @@ filetype plugin indent on
         nmap <space>f :VimFiler -winwidth=40 -explorer -toggle<CR>
         nmap <space>n :VimFiler -winwidth=40 -explorer -find<CR>
     "}}}
-    NeoBundleFetch 'tsaleh/vim-matchit'
+    NeoBundle 'tsaleh/vim-matchit'
 
     " VCS
-    NeoBundleFetch 'int3/vim-extradite', "{{{
+    NeoBundle 'int3/vim-extradite', "{{{
         noremap <space>e :Extradite!<CR>
         let g:extradite_width = 100
     "}}}
-    NeoBundleFetch 'tommcdo/vim-fugitive-blame-ext'
-    NeoBundleFetch 'tpope/vim-fugitive', "{{{
+    NeoBundle 'tommcdo/vim-fugitive-blame-ext'
+    NeoBundle 'tpope/vim-fugitive', "{{{
         noremap <silent> <leader>gs :Gstatus<CR>
         nnoremap <silent> <leader>gd :Gdiff<CR>
         nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -333,6 +313,23 @@ filetype plugin indent on
     "}}}
 
     NeoBundleCheck
+" }}}
+
+call neobundle#end()
+
+" Tabs & indenting {{{
+    set tabstop=4
+    set shiftwidth=4
+    set expandtab
+    set softtabstop=4
+    set shiftwidth=4
+
+    au FileType python,ruby setl sw=2 sts=2 et
+    au FileType javascript,css,less,sass,scss setl sw=2 sts=2 et
+    au FileType php,phtml,html setl sw=4 sts=4 et
+
+    filetype plugin indent on
+    filetype plugin on
 " }}}
 
 " Colourscheme {{{
