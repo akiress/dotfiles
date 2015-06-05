@@ -5,68 +5,40 @@ let mapleader=";"
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" NeoBundleInitialisation {{{
-    if has('vim_starting')
-      set runtimepath+=~/.vim/bundle/neobundle.vim/
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+if has('vim_starting')
+    if &compatible
+        set nocompatible               " Be iMproved
     endif
 
-    call neobundle#rc(expand('~/.vim/bundle/'))
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-    " Let NeoBundle manage NeoBundle
-    NeoBundleFetch 'Shougo/neobundle.vim'
-    NeoBundle 'Shougo/vimproc', {
-          \ 'build' : {
-          \     'windows' : 'make -f make_mingw32.mak',
-          \     'cygwin' : 'make -f make_cygwin.mak',
-          \     'mac' : 'make -f make_mac.mak',
-          \     'unix' : 'make -f make_unix.mak',
-          \    },
-          \ }
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-    " Syntax
-    NeoBundle 'itchyny/landscape.vim'
-"}}}
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundle 'Shougo/neobundle.vim'
 
-" Tabs & indenting {{{
-    set tabstop=4
-    set shiftwidth=4
-    set expandtab
-    set softtabstop=4
-    set shiftwidth=4
-
-    au FileType python,ruby setl sw=2 sts=2 et
-    au FileType javascript,css,less,sass,scss setl sw=2 sts=2 et
-    au FileType php,phtml,html setl sw=4 sts=4 et
-
-    filetype plugin indent on
-    filetype plugin on
-" }}}
-
-" Colourscheme {{{
-    syntax on
-    syntax sync fromstart
-    colorscheme landscape
-
-    hi LineNr ctermbg=016
-    hi MatchParen term=reverse ctermfg=027
-
-    " Allow color schemes to do bright colors without forcing bold.
-    if &t_Co == 8 && $TERM !~# '^linux'
-        set t_Co=16
-    endif
-" }}}
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set NeoBundle setting in .gvimrc!
 
 " NeoBundle {{{
-
     " Visual
+    NeoBundle 'vim-scripts/colorschemer'
     NeoBundle 'vim-scripts/jumphl.vim', "{{{
         autocmd VimEnter * DoJumpHl " Highlight line after jump
     "}}}
     NeoBundle 'ivyl/vim-bling'
     NeoBundle 'kana/vim-narrow'
     NeoBundle 'Yggdroot/indentLine', "{{{
-        let g:indentLine_color_term = 235
-        let g:indentLine_char = '┊'
+        let g:indentLine_color_term = 5
+        let g:indentLine_char = '|'
         nnoremap <space>i :IndentLinesToggle<CR>
     "}}}
     NeoBundle 'qstrahl/vim-matchmaker', "{{{
@@ -103,15 +75,6 @@ set nocompatible
     " Preview
     NeoBundle 'greyblake/vim-preview'
 
-    " Completion
-    NeoBundle 'marijnh/tern_for_vim', {
-      \ 'build' : {
-      \     'mac' : 'npm install --update',
-      \     'unix' : 'npm install --update',
-      \    },
-      \ }, "{{{
-        let g:tern_show_argument_hints = 1
-    " }}}
     NeoBundle 'shawncplus/phpcomplete.vim'
     NeoBundle 'Shougo/context_filetype.vim'
     NeoBundle 'Shougo/neocomplete.vim', "{{{
@@ -210,10 +173,10 @@ set nocompatible
                 \   execute "normal \<c-w>w" |
                 \ endif
 
-        hi StartifyBracket ctermfg=100
-        hi StartifyNumber  ctermfg=215
-        hi StartifyPath    ctermfg=245
-        hi StartifySlash   ctermfg=240
+        "hi StartifyBracket ctermfg=100
+        "hi StartifyNumber  ctermfg=215
+        "hi StartifyPath    ctermfg=245
+        "hi StartifySlash   ctermfg=240
     " }}}
     NeoBundle 'bling/vim-airline', "{{{
         set laststatus=2
@@ -256,8 +219,8 @@ set nocompatible
 
         " CTRL-P
         nnoremap <space>p :Unite -start-insert file_rec/async<cr>
-        call unite#filters#matcher_default#use(['matcher_fuzzy'])
-        call unite#set_profile('files', 'smartcase', 1)
+        " call unite#filters#matcher_default#use(['matcher_fuzzy'])
+        " call unite#set_profile('files', 'smartcase', 1)
 
         " Searching - brew install the_silver_searcher
         let g:unite_source_grep_command='ag'
@@ -319,7 +282,7 @@ set nocompatible
         nmap <space>f :VimFiler -winwidth=40 -explorer -toggle<CR>
         nmap <space>n :VimFiler -winwidth=40 -explorer -find<CR>
     "}}}
-    NeoBundle 'tsaleh/vim-matchit'
+    NeoBundle 'tpope/vim-sensible'
 
     " VCS
     NeoBundle 'int3/vim-extradite', "{{{
@@ -341,6 +304,37 @@ set nocompatible
     "}}}
 
     NeoBundleCheck
+" }}}
+
+call neobundle#end()
+
+" Tabs & indenting {{{
+    set tabstop=4
+    set shiftwidth=4
+    set expandtab
+    set softtabstop=4
+    set shiftwidth=4
+
+    au FileType python,ruby setl sw=2 sts=2 et
+    au FileType javascript,css,less,sass,scss setl sw=2 sts=2 et
+    au FileType php,phtml,html setl sw=4 sts=4 et
+
+    filetype plugin indent on
+    filetype plugin on
+" }}}
+
+" Colourscheme {{{
+    syntax on
+    syntax sync fromstart
+    colorscheme tchaba2
+
+    " hi LineNr ctermbg=016
+    " hi MatchParen term=reverse ctermfg=027
+
+    " Allow color schemes to do bright colors without forcing bold.
+    if &t_Co == 8 && $TERM !~# '^linux'
+        set t_Co=16
+    endif
 " }}}
 
 " Toggle relative numbers {{{
@@ -529,7 +523,7 @@ set nocompatible
 
     " listchar=trail is not as flexible, use the below to highlight trailing
     " whitespace. Don't do it for unite windows or readonly files
-    highlight ExtraWhitespace ctermbg=red guibg=red
+    " highlight ExtraWhitespace ctermbg=red guibg=red
 
     function! HighlightTrailingWhitespace()
         if &ft =~ 'html|scss|css|javascript|php|vim'
