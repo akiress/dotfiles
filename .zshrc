@@ -32,12 +32,11 @@ function list_all() {
 }
 chpwd_functions=(${chpwd_function[@]} "list_all")
 
-LS_COLORS=…
+LS_COLORS='di=1;34:ln=35:so=32:pi=0;33:ex=32:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=1;34:ow=1;34:'
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 if whence dircolors >/dev/null; then
     export LS_COLORS
     alias ls='ls --color'
 else
     export CLICOLOR=1
-    LSCOLORS=…
 fi
