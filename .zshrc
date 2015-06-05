@@ -26,12 +26,18 @@ antigen apply
 setopt auto_name_dirs
 setopt auto_cd
 
+# RSA key for machines that have one
+keychain --dir ~/.keychain ~/.ssh/id_rsa
+source ~/.keychain/$HOST-sh
+
+# Set function to auto ls when entering a new directory
 function list_all() {
 	emulate -L zsh
 	ls -lahrt
 }
 chpwd_functions=(${chpwd_function[@]} "list_all")
 
+# Set colors for terminal
 LS_COLORS='di=1;34:ln=35:so=32:pi=0;33:ex=32:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=1;34:ow=1;34:'
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 if whence dircolors >/dev/null; then
