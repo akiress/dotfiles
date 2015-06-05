@@ -31,3 +31,13 @@ function list_all() {
 	ls -lahrt
 }
 chpwd_functions=(${chpwd_function[@]} "list_all")
+
+LS_COLORS=…
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+if whence dircolors >/dev/null; then
+    export LS_COLORS
+    alias ls='ls --color'
+else
+    export CLICOLOR=1
+    LSCOLORS=…
+fi
