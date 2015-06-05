@@ -23,4 +23,11 @@ antigen theme xiong-chiamiov-plus
 # Tell antigen that you're done.
 antigen apply
 
-eval `keychain --eval id_rsa`
+setopt auto_name_dirs
+setopt auto_cd
+
+function list_all() {
+	emulate -L zsh
+	ls -lahrt
+}
+chpwd_functions=(${chpwd_function[@]} "list_all")
